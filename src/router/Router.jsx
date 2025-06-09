@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Header from "../pages/Header/Header";
 import Register from "../authentication/Register";
 import Login from "../authentication/Login";
+import Error from "../../Error(404)/Error";
 
 export const router = createBrowserRouter([
   {
@@ -28,4 +29,8 @@ export const router = createBrowserRouter([
       }
     ]
   },
+{
+    path:"*",
+    Component:Error
+}
 ]);
