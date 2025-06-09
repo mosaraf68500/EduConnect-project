@@ -1,0 +1,106 @@
+import React from "react";
+import { motion } from "framer-motion";
+import heroImage from "../../assets/image/hero-thumb1.png";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
+import heroShap from "../../assets/image/hero-shape1.png";
+import heroArrow from "../../assets/image/hero-arrow.png";
+import heroShap3 from "../../assets/image/hero-shape3.png";
+import heroDot from "../../assets/image/hero-dot.png";
+
+const floatAnimation = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
+};
+
+const Banner = () => {
+  return (
+    <div className="w-11/12 max-w-7xl mx-auto py-12 md:py-20 relative overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
+
+        {/* Text Section */}
+        <div className="space-y-6 text-center md:text-left relative z-10">
+          <p className="flex items-center justify-center md:justify-start gap-2 text-sm border border-[#1EC28E] bg-[#CCF5E0] text-[#1EC28E] px-4 py-2 rounded-full w-fit mx-auto md:mx-0">
+            <FaCheck /> 100% Satisfaction Guarantee
+          </p>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-snug">
+            Grow Up Your Learning Skills with{" "}
+            <span className="text-[#1EC28E]">Educate</span>
+          </h1>
+
+          <p className="text-gray-600 text-base sm:text-lg">
+            Educate is the ultimate destination for knowledge seekers and
+            educators alike. We are committed to transforming education.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
+            <button className="flex items-center justify-center cursor-pointer gap-2 bg-[#1EC28E] hover:bg-[#18a874] text-white px-6 py-3 rounded-full text-sm font-semibold transition">
+              GET STARTED <IoIosArrowRoundForward size={20} />
+            </button>
+            <button className="flex items-center justify-center cursor-pointer gap-2 border border-[#1EC28E] text-[#1EC28E] px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#CCF5E0] transition">
+              FIND COURSE <IoIosArrowRoundForward size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* Image Section */}
+        <div className="relative w-full h-full flex justify-center items-center">
+          {/* Hero Image */}
+          <motion.img
+            src={heroImage}
+            alt="Hero"
+            className="w-10/12 sm:w-3/4 md:w-full max-w-lg relative z-10"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          />
+
+          {/* 1. Rotating heroShap */}
+          <motion.img
+            src={heroShap}
+            alt="shape"
+            className="absolute w-12 md:w-18 top-[-30px] left-[-30px] z-0"
+            animate={{ rotate: 360 }}
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              ease: "linear",
+            }}
+          />
+
+          {/* 2. Floating heroShap3 */}
+          <motion.img
+            src={heroShap3}
+            alt="shape3"
+            className="absolute w-8 md:w-12 -top-10 left-78 z-0"
+            animate={floatAnimation}
+          />
+
+          {/* 3. Floating heroDot */}
+          <motion.img
+            src={heroDot}
+            alt="dot"
+            className="absolute w-10 md:w-16 top-26 right-5 z-0"
+            animate={{ x: [0, 10, 0], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+          />
+
+          {/* 4. Floating heroArrow */}
+          <motion.img
+            src={heroArrow}
+            alt="arrow"
+            className="absolute w-12 md:w-18 bottom-24 -left-32 z-0"
+            animate={{ y: [0, 15, 0], transition: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+          />
+          
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Banner;

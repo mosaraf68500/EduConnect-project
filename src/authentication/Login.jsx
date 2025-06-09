@@ -59,7 +59,7 @@ const Login = () => {
           </div>
           <div className="z-0 mt-4 ">
             <Lottie
-              style={{ width: "100%", maxWidth: "300px" }}
+              style={{ width: "100%", maxWidth: "400px" }}
               animationData={loginLottie}
               loop={true}
             />
