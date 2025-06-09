@@ -21,7 +21,6 @@ const Banner = () => {
   return (
     <div className="w-11/12 max-w-7xl mx-auto py-12 md:py-20 relative overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
-
         {/* Text Section */}
         <div className="space-y-6 text-center md:text-left relative z-10">
           <p className="flex items-center justify-center md:justify-start gap-2 text-sm border border-[#1EC28E] bg-[#CCF5E0] text-[#1EC28E] px-4 py-2 rounded-full w-fit mx-auto md:mx-0">
@@ -50,7 +49,6 @@ const Banner = () => {
 
         {/* Image Section */}
         <div className="relative w-full h-full flex justify-center items-center">
-          {/* Hero Image */}
           <motion.img
             src={heroImage}
             alt="Hero"
@@ -60,7 +58,6 @@ const Banner = () => {
             transition={{ duration: 1 }}
           />
 
-          {/* 1. Rotating heroShap */}
           <motion.img
             src={heroShap}
             alt="shape"
@@ -73,7 +70,6 @@ const Banner = () => {
             }}
           />
 
-          {/* 2. Floating heroShap3 */}
           <motion.img
             src={heroShap3}
             alt="shape3"
@@ -81,24 +77,63 @@ const Banner = () => {
             animate={floatAnimation}
           />
 
-          {/* 3. Floating heroDot */}
           <motion.img
             src={heroDot}
             alt="dot"
             className="absolute w-10 md:w-16 top-26 right-5 z-0"
-            animate={{ x: [0, 10, 0], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+            animate={{
+              x: [0, 10, 0],
+              transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            }}
           />
 
-          {/* 4. Floating heroArrow */}
           <motion.img
             src={heroArrow}
             alt="arrow"
-            className="absolute w-12 md:w-18 bottom-24 -left-32 z-0"
-            animate={{ y: [0, 15, 0], transition: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+            className="absolute w-12 md:w-18 bottom-48 -left-24 z-0"
+            animate={{
+              y: [0, 15, 0],
+              transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+            }}
           />
-          
         </div>
       </div>
+
+      {/* Floating Card Centered with Blur */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 bottom-32 bg-white/30 backdrop-blur-md shadow-xl rounded-xl px-6 py-4 z-20">
+        <div className="flex gap-4 items-center">
+          <div className="avatar-group -space-x-6">
+            <div className="avatar">
+              <div className="w-12">
+                <img src="https://i.ibb.co/wNh91MG6/muiii.webp" />
+              </div>
+            </div>
+            <div className="avatar">
+              <div className="w-12">
+                <img src="https://i.ibb.co/rG8SkBQP/mui.webp" />
+              </div>
+            </div>
+            <div className="avatar">
+              <div className="w-12">
+                <img src="https://i.ibb.co/GN49LVh/00a34707-1ab9-4452-8c8e-b3794eb0da06.webp" />
+              </div>
+            </div>
+            <div className="avatar avatar-placeholder">
+              <div className="bg-neutral text-neutral-content w-12">
+                <span>+99</span>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-1">
+            <h1 className="text-2xl md:text-4xl font-bold text-[#1EC28E]">250+</h1>
+            <p className="text-base md:text-xl font-semibold text-gray-600">
+              Expert Instructor
+            </p>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   );
 };
