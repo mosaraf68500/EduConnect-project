@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AuthContex } from "./AuthContex";
+import { createUserWithEmailAndPassword, onAuthStateChanged, ProviderId, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
 
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -25,7 +27,7 @@ const AuthProvider = ({ children }) => {
 
   const SignInWithGoogle = () => {
     setLoading(true);
-    return signInWithPopup(auth, Provider);
+    return signInWithPopup(auth, ProviderId);
   };
 
   useEffect(() => {
@@ -34,18 +36,7 @@ const AuthProvider = ({ children }) => {
 
       setLoading(false);
 
-      if (currentUser?.email) {
-        const userData = { email: currentUser.email };
-        console.log(userData);
-        axios
-          .post("http://localhost:3000/jwt", userData, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log("token after jwt", res.data);
-          })
-          .catch((error) => console.log(error));
-      }
+      
       console.log("current user in state", currentUser);
     });
     return () => unsubscribe();

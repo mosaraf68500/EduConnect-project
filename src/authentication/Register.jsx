@@ -6,7 +6,8 @@ import { Link } from "react-router";
 import { AuthContex } from "../Contex/AuthContex";
 
 const Register = () => {
-    const {name}=use(AuthContex)
+    const {createUser}=use(AuthContex)
+    // console.log(createUser)
     
     const handeRegistetionForm = (e) => {
       e.preventDefault();
@@ -16,14 +17,14 @@ const Register = () => {
       const password = form.password.value;
       const photo=form.photo.value;
       console.log(name,email, password,photo);
-  //     // create use with email and password
-  //     // createUser(email, password)
-  //     //   .then((result) => {
-  //     //     console.log(result.user);
-  //     //   })
-  //     //   .catch((error) => {
-  //     //     console.log(error);
-  //     //   });
+    //   create use with email and password
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     };
 
   return (
