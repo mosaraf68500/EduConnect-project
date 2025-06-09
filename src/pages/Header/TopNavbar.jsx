@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaRegArrowAltCircleRight, FaUserPlus, FaBars } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
+import { Link } from "react-router";
 
 const TopNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,10 @@ const TopNavbar = () => {
             <FaRegArrowAltCircleRight size={17} className="text-[#1EC28E]" />
             Login
           </button>
-          <button className="flex items-center gap-2 cursor-pointer">
+          <Link to="/register" className="flex items-center gap-2 cursor-pointer">
             <FaUserPlus size={17} className="text-[#1EC28E]" />
             Register
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}

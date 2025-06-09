@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { GiOpenBook } from "react-icons/gi";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const links = (
@@ -21,7 +22,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm text-gray-900">
+    <div className="navbar bg-base-100 shadow-sm text-gray-900 px-8">
       {/* Navbar Start (Mobile Menu + Logo) */}
       <div className="navbar-start">
         {/* Dropdown for Mobile */}
@@ -51,7 +52,11 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div className="flex justify-center items-center gap-2">
+          <GiOpenBook size={28} className="text-[#1EC28E]"/>
+
+          <Link  to="/" className=" text-xl text-gray-700 font-bold">EduConnect</Link>
+        </div>
       </div>
 
       {/* Navbar Center (For Desktop) */}
