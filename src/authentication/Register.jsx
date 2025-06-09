@@ -5,6 +5,7 @@ import { GiOpenBook } from "react-icons/gi";
 import { Link } from "react-router"; 
 import { AuthContex } from "../Contex/AuthContex";
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const { createUser } = useContext(AuthContex); 
@@ -41,7 +42,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 ">
+    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 pt-8">
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-5 gap-8 justify-center">
         {/* Lottie Animation */}
         <div className="lg:col-span-3 ">
@@ -55,7 +56,7 @@ const Register = () => {
           </div>
           <div className="z-0 mt-10">
             <Lottie
-              style={{ width: "100%", maxWidth: "300px" }}
+              style={{ width: "100%", maxWidth: "400px" }}
               animationData={rigistetionLottie}
               loop={true}
             />
@@ -102,6 +103,7 @@ const Register = () => {
                   Register
                 </button>
               </fieldset>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>

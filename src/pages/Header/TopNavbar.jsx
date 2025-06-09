@@ -17,10 +17,10 @@ const TopNavbar = () => {
 
         {/* Desktop Login/Register */}
         <div className="hidden sm:flex gap-8">
-          <button className="flex items-center gap-2 cursor-pointer">
+          <Link to="/login" className="flex items-center gap-2 cursor-pointer">
             <FaRegArrowAltCircleRight size={17} className="text-[#1EC28E]" />
             Login
-          </button>
+          </Link>
           <Link to="/register" className="flex items-center gap-2 cursor-pointer">
             <FaUserPlus size={17} className="text-[#1EC28E]" />
             Register
