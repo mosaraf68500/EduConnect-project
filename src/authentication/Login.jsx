@@ -1,24 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContex } from "../Contex/AuthContex";
 import Lottie from "lottie-react";
 
-import loginLottie from "../assets/lotties/loginLottie.json"
+import loginLottie from "../assets/lotties/loginLottie.json";
 import { GiOpenBook } from "react-icons/gi";
 import { Link } from "react-router";
 import SocialLogin from "./SocialLogin";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { SingInUser } = useContext(AuthContex);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handeLoginForm = (e) => {
     e.preventDefault();
     const form = e.target;
-    
+
     const email = form.email.value;
     const password = form.password.value;
-   
-    console.log( email, password);
+
+    console.log(email, password);
 
     SingInUser(email, password)
       .then((result) => {
@@ -48,10 +50,11 @@ const Login = () => {
         <div className="lg:col-span-3 ">
           <div className="z-10 text-gray-800 ">
             <h1 className="text-2xl lg:text-4xl font-bold mb-2">
-             Welcome Back!
+              Welcome Back!
             </h1>
             <p className="text-sm lg:text-base">
-              Sign in to continue your journey and unlock a world of opportunities.
+              Sign in to continue your journey and unlock a world of
+              opportunities.
             </p>
           </div>
           <div className="z-0 mt-4 ">
@@ -78,7 +81,6 @@ const Login = () => {
 
             <form onSubmit={handeLoginForm}>
               <fieldset className="space-y-3">
-                
                 <div>
                   <label className="label font-semibold">Email</label>
                   <input
@@ -88,16 +90,29 @@ const Login = () => {
                     placeholder="Email"
                   />
                 </div>
-                <div>
-                  <label className="label font-semibold">Password</label>
-                  <input
-                    name="password"
-                    type="password"
-                    className="input w-full border border-[#1EC28E] rounded-lg p-3"
-                    placeholder="Password"
-                  />
+                <div className="space-y-1 text-sm">
+                  <label htmlFor="password" className="block">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      placeholder="Enter your password"
+                      required
+                      className="w-full px-4 py-3 rounded-md bg-white border border-[#1EC28E]"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute top-3 right-3 text-gray-600"
+                    >
+                      {showPassword ? <FaEyeSlash size={20} className="text-[#1EC28E]"/> : <FaEye size={20} className="text-[#1EC28E]" />}
+                    </button>
+                  </div>
                 </div>
-                
+
                 <div className="text-right">
                   <a className="link link-hover text-sm text-[#1EC28E]">
                     Forgot password?
@@ -107,8 +122,9 @@ const Login = () => {
                   Register
                 </button>
               </fieldset>
-              <SocialLogin></SocialLogin>
+              
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

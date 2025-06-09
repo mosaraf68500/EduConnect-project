@@ -1,27 +1,28 @@
 import React, { use } from "react";
-// import { AuthContex } from "../contex/AuthContex";
 import { useNavigate } from "react-router";
 import { AuthContex } from "../Contex/AuthContex";
 
-const SocialLogin = ({from}) => {
-    const {SignInWithGoogle}=use(AuthContex);
-    const navigate=useNavigate();
-    const handleSignInWithGoogle=()=>{
-        SignInWithGoogle()
-        .then(result=>{
-            console.log(result)
-            navigate(from || "/")
-
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-    }
+const SocialLogin = ({ from }) => {
+  const { SignInWithGoogle } = use(AuthContex);
+  const navigate = useNavigate();
+  const handleSignInWithGoogle = () => {
+    SignInWithGoogle()
+      .then((result) => {
+        console.log(result);
+        navigate(from || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="w-full">
-        <div className="divider">OR continue with</div>
+      <div className="divider">OR continue with</div>
       <div className="my-6 space-y-4 w-full">
-        <button onClick={handleSignInWithGoogle}  className="btn bg-white text-black border-[#e5e5e5]flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600">
+        <button
+          onClick={handleSignInWithGoogle}
+          className="btn bg-white text-black border-[#e5e5e5]flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
+        >
           <svg
             aria-label="Google logo"
             width="16"
@@ -52,7 +53,6 @@ const SocialLogin = ({from}) => {
           Login with Google
         </button>
       </div>
-      
     </div>
   );
 };

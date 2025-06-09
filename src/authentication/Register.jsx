@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import rigistetionLottie from "../assets/lotties/registerLottie.json";
 import Lottie from "lottie-react";
 import { GiOpenBook } from "react-icons/gi";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 import { AuthContex } from "../Contex/AuthContex";
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContex); 
+  const { createUser } = useContext(AuthContex);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handeRegistetionForm = (e) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          form.reset(); 
+          form.reset();
         }
       })
       .catch((error) => {
@@ -51,7 +53,8 @@ const Register = () => {
               Join Us Today!
             </h1>
             <p className="text-sm lg:text-base">
-              Create your account and step into a world filled with endless possibilities.
+              Create your account and step into a world filled with endless
+              possibilities.
             </p>
           </div>
           <div className="z-0 mt-10">
@@ -80,31 +83,73 @@ const Register = () => {
               <fieldset className="space-y-3">
                 <div>
                   <label className="label font-semibold">Name</label>
-                  <input name="name" type="text" className="input w-full border border-[#1EC28E] rounded-lg p-3" placeholder="Name" />
+                  <input
+                    name="name"
+                    type="text"
+                    className="input w-full border border-[#1EC28E] rounded-lg p-3"
+                    placeholder="Name"
+                  />
                 </div>
                 <div>
                   <label className="label font-semibold">Email</label>
-                  <input name="email" type="email" className="input w-full border border-[#1EC28E] rounded-lg p-3" placeholder="Email" />
+                  <input
+                    name="email"
+                    type="email"
+                    className="input w-full border border-[#1EC28E] rounded-lg p-3"
+                    placeholder="Email"
+                  />
                 </div>
                 <div>
                   <label className="label font-semibold">Password</label>
-                  <input name="password" type="password" className="input w-full border border-[#1EC28E] rounded-lg p-3" placeholder="Password" />
+                  <input
+                    name="password"
+                    type="password"
+                    className="input w-full border border-[#1EC28E] rounded-lg p-3"
+                    placeholder="Password"
+                  />
                 </div>
                 <div>
                   <label className="label font-semibold">Photo URL</label>
-                  <input name="photo" type="text" className="input w-full border border-[#1EC28E] rounded-lg p-3" placeholder="Photo URL" />
+                  <input
+                    name="photo"
+                    type="text"
+                    className="input w-full border border-[#1EC28E] rounded-lg p-3"
+                    placeholder="Photo URL"
+                  />
                 </div>
-                <div className="text-right">
-                  <a className="link link-hover text-sm text-[#1EC28E]">
-                    Forgot password?
-                  </a>
+                <div className="space-y-1 text-sm">
+                  <label htmlFor="password" className="block">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      placeholder="Enter your password"
+                      required
+                      className="w-full px-4 py-3 rounded-md bg-white border border-[#1EC28E]"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute top-3 right-3 text-gray-600"
+                    >
+                      {showPassword ? (
+                        <FaEyeSlash size={20} className="text-[#1EC28E]" />
+                      ) : (
+                        <FaEye size={20} className="text-[#1EC28E]" />
+                      )}
+                    </button>
+                  </div>
                 </div>
                 <button className="btn w-full mt-2 bg-[#1EC28E] hover:bg-[#17aa7a] text-white border-none rounded-lg">
                   Register
                 </button>
               </fieldset>
-              <SocialLogin></SocialLogin>
+              
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

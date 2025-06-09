@@ -1,8 +1,22 @@
-import React from "react";
+import React, { use } from "react";
 import { GiOpenBook } from "react-icons/gi";
 import { Link, NavLink } from "react-router";
+import { AuthContex } from "../../Contex/AuthContex";
 
 const Navbar = () => {
+  const { user, signOutUser } = use(AuthContex);
+
+  // Sign out handler
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        console.log("Sign out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const links = (
     <>
       <li>
@@ -53,9 +67,11 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="flex justify-center items-center gap-2">
-          <GiOpenBook size={28} className="text-[#1EC28E]"/>
+          <GiOpenBook size={28} className="text-[#1EC28E]" />
 
-          <Link  to="/" className=" text-xl text-gray-700 font-bold">EduConnect</Link>
+          <Link to="/" className=" text-xl text-gray-700 font-bold">
+            EduConnect
+          </Link>
         </div>
       </div>
 
@@ -65,23 +81,29 @@ const Navbar = () => {
       </div>
 
       {/* Navbar End (Auth Buttons) */}
-      {/* <div className="navbar-end gap-3">
-        {user ? (
-          <button onClick={signOut} className="btn">
-            Sign Out
-          </button>
-        ) : (
-          <>
-            <NavLink className="btn" to="/register">
-              Register
-            </NavLink>
-            <NavLink className="btn" to="/signIn">
-              Sign In
-            </NavLink>
-          </>
-        )}
-      </div> */}
-    </div>
+      <div className="navbar-end gap-3">
+        {user && (
+            <>
+              <img
+                className="w-10 h-10 rounded-full"
+                title={user?.displayName}
+                src={
+                  user?.photoURL ||
+                  "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp"
+                }
+                alt="User avatar"
+              />
+              <button
+                onClick={handleSignOut}
+                className="px-4 py-2 cursor-pointer bg-[#1EC28E] text-white rounded hover:bg-[#498270e4]"
+              >
+                SignOut
+              </button>
+            </>
+          ) }
+        </div>
+      </div>
+    
   );
 };
 
