@@ -19,7 +19,7 @@ const floatAnimation = {
 
 const Banner = () => {
   return (
-    <div className="w-11/12 max-w-7xl mx-auto py-12 md:py-20 relative overflow-hidden">
+    <div className="w-11/12 max-w-7xl mx-auto pt-12 md:py-20 relative overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
         {/* Text Section */}
         <div className="space-y-6 text-center md:text-left relative z-10">
