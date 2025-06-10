@@ -22,17 +22,24 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
+      <li>
+        <NavLink to="/find-tutors">Find tutors</NavLink>
+      </li>
 
-      {/* {user && (
+      {user && (
         <>
           <li>
-            <NavLink to="/addjob">Add Job</NavLink>
+            <NavLink to="/add-tutorials">Add Tutorials</NavLink>
           </li>
           <li>
-            <NavLink to="/myPostedJobs">My Posted Jobs</NavLink>
+            <NavLink to="/my-tutorials">My Tutorials</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/my-booked-tutors">My booked tutors</NavLink>
           </li>
         </>
-      )} */}
+      )}
     </>
   );
   return (

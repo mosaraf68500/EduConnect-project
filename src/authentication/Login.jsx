@@ -5,13 +5,15 @@ import Lottie from "lottie-react";
 
 import loginLottie from "../assets/lotties/loginLottie.json";
 import { GiOpenBook } from "react-icons/gi";
-import { Link } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import SocialLogin from "./SocialLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { SingInUser } = useContext(AuthContex);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const location=useLocation();
 
   const handeLoginForm = (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ const Login = () => {
 
     SingInUser(email, password)
       .then((result) => {
+         navigate( location?.state|| "/");
         if (result.user) {
           Swal.fire({
             position: "top-end",
