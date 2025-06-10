@@ -1,21 +1,49 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { AuthContex } from "../../Contex/AuthContex";
+import axios from "axios";
+import Swal from "sweetalert2";
+import Loading from "../../LoadingPage/Loading";
 
 const AddTutorials = () => {
-    const {user}=use(AuthContex);
-    console.log(user.displayName)
+  const { user } = useContext(AuthContex);
+
+  if (!user) return <Loading></Loading>;
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form=e.target;
-     const formData = new FormData(form);
-    const tutorialData = Object.fromEntries(
-      formData.entries()
-    );
+    const form = e.target;
+    const formData = new FormData(form);
+    const tutorialData = Object.fromEntries(formData.entries());
+
+    axios
+      .post("http://localhost:5000/tutorials", tutorialData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your tutorial has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong while adding the tutorial!",
+        });
+      });
+
     console.log(tutorialData);
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-10  shadow-lg rounded-xl bg-gray-50 my-10">
+    <div className="max-w-5xl mx-auto p-10 shadow-lg rounded-xl bg-gray-50 my-10">
       <h2 className="text-3xl font-bold text-center mb-8 text-[#1EC28E]">
         Add a New Tutorial
       </h2>
@@ -32,9 +60,9 @@ const AddTutorials = () => {
               <input
                 type="text"
                 name="username"
-                value={user.displayName}
+                value={user?.displayName || ""}
                 readOnly
-                className="w-full border-[1.5px]  border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
+                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
               />
             </div>
 
@@ -46,13 +74,13 @@ const AddTutorials = () => {
               <input
                 type="email"
                 name="email"
-                value={user.email}
+                value={user?.email || ""}
                 readOnly
                 className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
               />
             </div>
 
-            {/* Image Upload */}
+            {/* Image URL */}
             <div>
               <label className="block text-gray-700 font-semibold mb-2">
                 Image (Tutorial Image)
@@ -60,8 +88,9 @@ const AddTutorials = () => {
               <input
                 type="text"
                 name="image"
-                placeholder="Tutorial Image"
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none file:border-0 file:bg-[#1EC28E] file:text-white file:rounded-md file:px-4 file:py-2"
+                placeholder="Tutorial image URL"
+                required
+                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none"
               />
             </div>
 
@@ -74,15 +103,14 @@ const AddTutorials = () => {
                 type="text"
                 name="language"
                 placeholder="e.g. JavaScript, Python"
+                required
                 className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none"
               />
             </div>
           </div>
-          
 
           {/* Column 2 */}
-          <div className="space-y-1">
-            
+          <div className="space-y-2">
             {/* Price */}
             <div>
               <label className="block text-gray-700 font-semibold mb-2">
@@ -91,7 +119,8 @@ const AddTutorials = () => {
               <input
                 type="number"
                 name="price"
-                placeholder="Enter price in BD"
+                placeholder="Enter price in BDT"
+                required
                 className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none"
               />
             </div>
@@ -105,6 +134,7 @@ const AddTutorials = () => {
                 name="description"
                 rows="5"
                 placeholder="Write tutorial description..."
+                required
                 className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none resize-none"
               ></textarea>
             </div>
