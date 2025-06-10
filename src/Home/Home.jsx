@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../pages/Header/Header";
 import Banner from "./Banner/Banner";
 import StateSection from "./StateSection";
+import LanguageCategories from "./LanguageCategories";
 
 const Home = () => {
   return (
@@ -36,6 +37,11 @@ const Home = () => {
       {/* state section */}
       <section className=" my-10">
         <StateSection></StateSection>
+      </section>
+
+      {/* language categories */}
+      <section className="w-11/12 mx-auto">
+        <LanguageCategories></LanguageCategories>
       </section>
     </div>
   );
