@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "../pages/Header/Header";
 import Banner from "./Banner/Banner";
+import StateSection from "./StateSection";
 
 const Home = () => {
   return (
     <div>
-      <section className="bg-gradient-to-r from-[#d1ecdb] to-white ">
+      <section className="bg-gradient-to-r from-[#d1ecdb] to-white">
         <Banner></Banner>
         {/* ratting */}
         <section className="bg-gradient-to-r from-[#D9FBF1] to-blue-50 ">
@@ -30,6 +31,11 @@ const Home = () => {
             </div>
           </div>
         </section>
+      </section>
+
+      {/* state section */}
+      <section className=" my-10">
+        <StateSection></StateSection>
       </section>
     </div>
   );
