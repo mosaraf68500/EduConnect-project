@@ -15,11 +15,11 @@ const TutorialCard = ({ tutorial }) => {
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 flex flex-col md:flex-row">
       {/* Left Side: Image */}
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 border rounded-2xl border-[#1EC28E]">
         <img
           src={image || "https://via.placeholder.com/400x300?text=No+Image"}
           alt={username}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-2xl p-3"
         />
       </div>
 
