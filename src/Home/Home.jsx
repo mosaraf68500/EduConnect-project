@@ -4,6 +4,7 @@ import Banner from "./Banner/Banner";
 import StateSection from "./StateSection";
 import LanguageCategories from "./LanguageCategories";
 import Feauters from "../components/Feauters";
+import About from "../components/About";
 
 const Home = () => {
   return (
@@ -48,6 +49,11 @@ const Home = () => {
       {/* features section */}
       <section>
         <Feauters></Feauters>
+      </section>
+
+      {/* about section */}
+      <section>
+        <About></About>
       </section>
     </div>
   );
