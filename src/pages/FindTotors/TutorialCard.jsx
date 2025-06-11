@@ -1,23 +1,16 @@
 import React from "react";
-import {
-  Mail,
-  User,
-  Languages,
-  Star,
-  Info,
-  DollarSign,
-} from "lucide-react";
+import { Mail, User, Languages, Star, Info, DollarSign } from "lucide-react";
+import { Link } from "react-router";
 
 const TutorialCard = ({ tutorial }) => {
-  const { _id, username, email, image, language, price, review } =
-    tutorial;
+  const { _id, username, email, image, language, price, review } = tutorial;
 
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 flex flex-col md:flex-row">
       {/* Left Side: Image */}
       <div className="w-full md:w-1/2 border rounded-2xl border-[#1EC28E]">
         <img
-          src={image || "https://via.placeholder.com/400x300?text=No+Image"}
+          src={image || "https://i.ibb.co/wNh91MG6/muiii.webp"}
           alt={username}
           className="w-full h-full object-cover rounded-2xl p-3"
         />
@@ -67,13 +60,13 @@ const TutorialCard = ({ tutorial }) => {
 
         {/* Details Button */}
         <div className="mt-6 w-full">
-          <button
+          <Link
+            to={`/details/${_id}`} 
             className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#1EC28E] text-white text-sm font-medium rounded-lg hover:opacity-90 transition"
-            onClick={() => alert(`Showing details for ${username}`)}
           >
             <Info className="w-4 h-4 text-white" />
             Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>

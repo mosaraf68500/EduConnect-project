@@ -10,6 +10,7 @@ import AddTutorials from "../pages/AddTutorials/AddTutorials";
 import MyTutorials from "../pages/MyTutorials/MyTutorials";
 import MyBookedTutors from "../pages/MyBookedTutors/MyBookedTutors";
 import PrivateRoutes from "../Private/PrivateRoutes";
+import Details from "../components/Details";
 
 export const router = createBrowserRouter([
   {
@@ -17,41 +18,63 @@ export const router = createBrowserRouter([
     Component: RootLayOuts,
     children: [
       {
-        index: true, 
-        Component: Home
+        index: true,
+        Component: Home,
       },
       {
-        path: "header", 
-        Component: Header
+        path: "header",
+        Component: Header,
       },
       {
-        path:'register',
-        Component:Register
+        path: "register",
+        Component: Register,
       },
       {
-        path:'login',
-        Component:Login
+        path: "login",
+        Component: Login,
       },
       {
-        path:'find-tutors',
-        Component:FindToturs
+        path: "find-tutors",
+        Component: FindToturs,
       },
       {
-        path:'add-tutorials',
-        element:<PrivateRoutes><AddTutorials></AddTutorials></PrivateRoutes>
+        path: "add-tutorials",
+        element: (
+          <PrivateRoutes>
+            <AddTutorials></AddTutorials>
+          </PrivateRoutes>
+        ),
       },
       {
-        path:'my-tutorials',
-        element:<PrivateRoutes><MyTutorials></MyTutorials></PrivateRoutes>
+        path: "/details/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tutorials/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <Details></Details>
+          </PrivateRoutes>
+        ),
       },
       {
-        path:'my-booked-tutors',
-        element:<PrivateRoutes><MyBookedTutors></MyBookedTutors></PrivateRoutes>
+        path: "my-tutorials",
+        element: (
+          <PrivateRoutes>
+            <MyTutorials></MyTutorials>
+          </PrivateRoutes>
+        ),
       },
-    ]
+      {
+        path: "my-booked-tutors",
+        element: (
+          <PrivateRoutes>
+            <MyBookedTutors></MyBookedTutors>
+          </PrivateRoutes>
+        ),
+      },
+    ],
   },
-{
-    path:"*",
-    Component:Error
-}
+  {
+    path: "*",
+    Component: Error,
+  },
 ]);
