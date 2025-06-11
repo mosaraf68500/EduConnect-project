@@ -3,6 +3,7 @@ import Header from "../pages/Header/Header";
 import Banner from "./Banner/Banner";
 import StateSection from "./StateSection";
 import LanguageCategories from "./LanguageCategories";
+import Feauters from "../components/Feauters";
 
 const Home = () => {
   return (
@@ -42,6 +43,11 @@ const Home = () => {
       {/* language categories */}
       <section className="w-11/12 mx-auto">
         <LanguageCategories></LanguageCategories>
+      </section>
+
+      {/* features section */}
+      <section>
+        <Feauters></Feauters>
       </section>
     </div>
   );
