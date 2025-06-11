@@ -5,6 +5,7 @@ import StateSection from "./StateSection";
 import LanguageCategories from "./LanguageCategories";
 import Feauters from "../components/Feauters";
 import About from "../components/About";
+import Blogs from "../components/Blogs";
 
 const Home = () => {
   return (
@@ -54,6 +55,11 @@ const Home = () => {
       {/* about section */}
       <section>
         <About></About>
+      </section>
+
+      {/* blogs section */}
+      <section>
+        <Blogs></Blogs>
       </section>
     </div>
   );
