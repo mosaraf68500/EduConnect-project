@@ -6,6 +6,8 @@ import LanguageCategories from "./LanguageCategories";
 import Feauters from "../components/Feauters";
 import About from "../components/About";
 import Blogs from "../components/Blogs";
+import Inovative from "./Inovative";
+import TeamSection from "./TeamSection";
 
 const Home = () => {
   return (
@@ -56,10 +58,19 @@ const Home = () => {
       <section>
         <About></About>
       </section>
+      {/* innovative idea learnging */}
+      <section className="bg-green-50">
+        <Inovative></Inovative>
+      </section>
 
       {/* blogs section */}
       <section>
         <Blogs></Blogs>
+      </section>
+
+      {/* team section */}
+      <section>
+        <TeamSection></TeamSection>
       </section>
     </div>
   );
