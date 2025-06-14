@@ -7,11 +7,13 @@ import { MyTutorialsPromise } from '../../../api/MyTutorialApi';
 
 const MyTutorials = () => {
     const {user}=use(AuthContex);
-    //   console.log("token",user.accessToken)
-    // console.log(MyTutorialsPromise)
+    
+    // const allTutorials=use(MyTutorialsPromise);
+    // console.log(allTutorials)
     return (
-        <div>
-            <h1>my tutorials</h1>
+        <div className='py-10 my-4 bg-white text-center'>
+            
+            
            
             <Suspense fallback={<Loading></Loading>}>
             <MyTutorialList MyTutorialsPromise={MyTutorialsPromise(user.email,user.accessToken)} >

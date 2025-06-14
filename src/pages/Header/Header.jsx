@@ -4,14 +4,14 @@ import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <div className=" text-white ">
-      <div className="lg:block sm:hidden">
-        <TopNavbar></TopNavbar>
+    <header className="w-full">
+      <div className="hidden lg:block">
+        <TopNavbar />
       </div>
-     <div className="sticky top-0 z-50">
-         <Navbar></Navbar>
-     </div>
-    </div>
+      <div className="sticky top-0 z-50">
+        <Navbar />
+      </div>
+    </header>
   );
 };
 
