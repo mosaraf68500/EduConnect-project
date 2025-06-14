@@ -39,7 +39,7 @@ const AddTutorials = () => {
         });
       });
 
-    console.log(tutorialData);
+    // console.log(tutorialData);
   };
 
   return (

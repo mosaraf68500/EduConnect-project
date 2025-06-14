@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { useLoaderData } from "react-router";
 import {
   Mail,
@@ -9,17 +9,50 @@ import {
   Info,
 } from "lucide-react";
 import { Link } from "react-router";
+import { AuthContex } from "../Contex/AuthContex";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const Details = () => {
   const detailsData = useLoaderData();
-  const { _id, username, email, image, language, price, description, review } =
-    detailsData;
+const { user } = use(AuthContex);
 
-    const handleBookBtnToStoreDB= ()=>{
-        const BookInfo={username, email, image, language, price, description, review };
-        console.log(BookInfo)
+// const userEmail = user.email;
+// console.log(userEmail)
 
-    }
+const { _id, username, email, image, language, price, description, review } = detailsData;
+
+const handleBookBtnToStoreDB = () => {
+  const BookInfo = { _id, image, language, price, email };
+  const BookInfoWithUserEmail = { ...BookInfo, userEmail: user.email };
+  axios
+      .post("http://localhost:5000/BookTutors", BookInfoWithUserEmail)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your tutor has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong while adding the tutorial!",
+        });
+      });
+
+    // console.log(tutorialData);
+
+};
+
 
   return (
     <div className="text-gray-700 bg-gray-100 shadow-xl rounded-2xl overflow-hidden border border-[#1EC28E] flex flex-col md:flex-row max-w-4xl mx-auto my-10">

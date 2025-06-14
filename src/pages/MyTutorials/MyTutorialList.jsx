@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const MyTutorialList = ({ MyTutorialsPromise }) => {
   const tutorials = use(MyTutorialsPromise);
-  const [allTutorial, setallTutorial] = useState(tutorials); // ✅ FIXED
+  const [allTutorial, setallTutorial] = useState(tutorials); 
 
   return (
     <div className="w-11/12 mx-auto text-center">
