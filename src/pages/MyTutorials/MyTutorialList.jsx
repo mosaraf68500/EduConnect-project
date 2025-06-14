@@ -25,32 +25,38 @@ const MyTutorialList = ({ MyTutorialsPromise }) => {
         List of all tutorials you've created or saved
       </motion.h3>
 
-      <div className="overflow-x-auto shadow border border-[#1EC28E]">
-        <table className="table-auto w-full text-sm md:text-base text-center">
-          <thead className="bg-gray-100 text-gray-700">
-            <tr className="text-xs sm:text-sm md:text-base">
-              {["#", "Image", "Language", "Price", "Description", "Review", "Actions"].map((heading) => (
-                <th
-                  key={heading}
-                  className="px-2 sm:px-4 py-2 border border-[#1EC28E] whitespace-nowrap"
-                >
-                  {heading}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {allTutorial.map((tutorial, index) => (
-              <TutorialsRow
-                key={tutorial._id}
-                index={index}
-                tutorial={tutorial}
-                setallTutorial={setallTutorial} // ✅ PASSED CORRECTLY
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
+     {allTutorial.length === 0 ? (
+  <p className="text-center text-lg text-red-500 mt-6">
+    No tutorials available. Please add some.
+  </p>
+) : (
+  <div className="overflow-x-auto">
+    <table className="table table-zebra w-full border border-[#1EC28E]">
+      <thead>
+        <tr className="bg-[#1EC28E] text-white  text-xs sm:text-sm md:text-base text-center">
+          <th className='border border-white'>#</th>
+          <th className='border border-white'>Image</th>
+          <th className='border border-white'>Language</th>
+          <th className='border border-white'>Price</th>
+          <th className='border border-white'>Description</th>
+          <th className='border border-white'>Review</th>
+          <th className='border border-white'>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {allTutorial.map((tutorial, index) => (
+          <TutorialsRow
+            key={tutorial._id}
+            tutorial={tutorial}
+            index={index}
+            setallTutorial={setallTutorial}
+          />
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+
     </div>
   );
 };
