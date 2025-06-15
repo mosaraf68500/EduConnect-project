@@ -23,7 +23,7 @@ const { user } = use(AuthContex);
 const { _id, username, email, image, language, price, description, review } = detailsData;
 
 const handleBookBtnToStoreDB = () => {
-  const BookInfo = { _id, image, language, price, email };
+  const BookInfo = { bookId:_id, image, language, price, email };
   const BookInfoWithUserEmail = { ...BookInfo, userEmail: user.email };
   axios
       .post("http://localhost:5000/BookTutors", BookInfoWithUserEmail)

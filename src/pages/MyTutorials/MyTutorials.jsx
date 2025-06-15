@@ -11,7 +11,7 @@ const MyTutorials = () => {
     // const allTutorials=use(MyTutorialsPromise);
     // console.log(allTutorials)
     return (
-        <div className='py-10 my-4 bg-white text-center'>
+        <div className=' my-4 bg-white text-center'>
             
             
            

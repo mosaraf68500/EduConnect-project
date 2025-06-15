@@ -1,9 +1,27 @@
-import React from 'react';
-import { User, Languages, Mail, DollarSign, Info } from 'lucide-react';
-import { Link } from 'react-router';
+import React from "react";
+import axios from "axios";
+import { Languages, Mail, DollarSign, Info } from "lucide-react";
+import Swal from "sweetalert2";
 
 const MyBookedTutorCard = ({ MyBookedTutor }) => {
-  const { image, language, price, email } = MyBookedTutor;
+  const { _id, image, language, price, email, review = 0 } = MyBookedTutor;
+//   console.log(_id)
+
+ const handleQuickReviewSubmit = async (id) => {
+  try {
+    const { data } = await axios.patch(`http://localhost:5000/BookTutors/${id}`);
+    if (data.modifiedCount > 0) {
+      Swal.fire("Success!", "Review count increased by 1", "success");
+    } else {
+      Swal.fire("Oops!", "Failed to update review", "error");
+    }
+  } catch (error) {
+    console.error("Review error:", error);
+    Swal.fire("Error!", "Something went wrong", "error");
+  }
+};
+
+
 
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 flex flex-col md:flex-row">
@@ -18,9 +36,6 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
 
       {/* Right Side: Info */}
       <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
-        
-
-        {/* Language */}
         <p className="text-gray-600 text-sm mb-2 flex items-center gap-2">
           <Languages className="w-4 h-4 text-[#1EC28E]" />
           <span>
@@ -28,7 +43,6 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
           </span>
         </p>
 
-        {/* Email */}
         <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
           <span className="flex items-center gap-2">
             <Mail className="w-4 h-4 text-[#1EC28E]" />
@@ -39,7 +53,6 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
           </a>
         </div>
 
-        {/* Price */}
         <p className="text-gray-600 text-sm mb-2 flex items-center gap-2">
           <DollarSign className="w-4 h-4 text-[#1EC28E]" />
           <span>
@@ -47,15 +60,18 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
           </span>
         </p>
 
-        {/* Details Button */}
+        <p className="text-gray-700 text-sm mt-2">
+          <span className="font-medium">Total Reviews:</span> {review}
+        </p>
+
         <div className="mt-6 w-full">
-          <Link
-           
+          <button
+            onClick={()=>handleQuickReviewSubmit(_id)}
             className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#1EC28E] text-white text-sm font-medium rounded-lg hover:opacity-90 transition"
           >
             <Info className="w-4 h-4 text-white" />
-            Review
-          </Link>
+            Add Review
+          </button>
         </div>
       </div>
     </div>

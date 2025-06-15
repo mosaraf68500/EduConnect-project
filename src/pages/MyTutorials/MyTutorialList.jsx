@@ -9,7 +9,7 @@ const MyTutorialList = ({ MyTutorialsPromise }) => {
   return (
     <div className="w-11/12 mx-auto text-center">
       <motion.h3
-        className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-center py-4"
+        className="text-md sm:text-lg md:text-xl lg:text-2xl font-semibold mb-6 text-center py-4"
         animate={{
           scale: [1, 1.2, 1],
           color: ["#ff0000", "#00ff00", "#0000ff", "#000000"],
@@ -26,7 +26,7 @@ const MyTutorialList = ({ MyTutorialsPromise }) => {
       </motion.h3>
 
      {allTutorial.length === 0 ? (
-  <p className="text-center text-lg text-red-500 mt-6">
+  <p className="text-center text-lg text-red-500 ">
     No tutorials available. Please add some.
   </p>
 ) : (
