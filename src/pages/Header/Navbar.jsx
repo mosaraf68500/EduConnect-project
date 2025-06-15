@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { GiOpenBook } from "react-icons/gi";
 import { Link, NavLink } from "react-router";
 import { AuthContex } from "../../Contex/AuthContex";
+import ThemeControl from "../../components/ThemeControl";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContex);
@@ -24,6 +25,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/find-tutors">Find tutors</NavLink>
+      </li>
+      <li>
+        <ThemeControl></ThemeControl>
       </li>
 
       {user && (
