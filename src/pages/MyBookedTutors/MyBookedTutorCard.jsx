@@ -11,7 +11,9 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
 
   const handleQuickReviewSubmit = async (id) => {
     try {
-      const { data } = await axios.patch(`http://localhost:5000/BookTutors/${id}`);
+      const { data } = await axios.patch(
+        `https://edu-connect-server-side.vercel.app/BookTutors/${id}`
+      );
       if (data.modifiedCount > 0) {
         setReviewCount((prev) => prev + 1); // update review in UI
         Swal.fire("Success!", "Review count increased by 1", "success");

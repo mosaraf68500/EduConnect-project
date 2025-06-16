@@ -16,7 +16,10 @@ const AddTutorials = () => {
     const tutorialData = Object.fromEntries(formData.entries());
 
     axios
-      .post("http://localhost:5000/tutorials", tutorialData)
+      .post(
+        "https://edu-connect-server-side.vercel.app/tutorials",
+        tutorialData
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

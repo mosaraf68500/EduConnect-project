@@ -48,7 +48,9 @@ export const router = createBrowserRouter([
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tutorials/${params.id}`),
+          fetch(
+            `https://edu-connect-server-side.vercel.app/tutorials/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <Details></Details>

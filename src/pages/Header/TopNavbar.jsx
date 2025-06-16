@@ -1,53 +1,38 @@
-import React, { useState } from "react";
-import { FaRegArrowAltCircleRight, FaUserPlus, FaBars } from "react-icons/fa";
+import React from "react";
+import { FaRegArrowAltCircleRight, FaUserPlus } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import { Link } from "react-router";
 
 const TopNavbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div className="bg-gray-800 py-3 px-4 sm:px-8 text-white relative">
-      <div className="flex justify-between items-center">
-        {/* Desktop Welcome */}
-        <div className="hidden sm:flex items-center gap-2 text-sm">
+    <div className="bg-gray-800 py-3 px-4 sm:px-8 text-white relative z-[9999]">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+        {/* Welcome Text - Only for md and up */}
+        <div className="hidden md:flex items-center gap-2 text-sm">
           <IoIosStar className="text-[#1EC28E]" />
-          Welcome to <span className="text-[#1EC28E]">EduConnect</span> - Unlocking the Power of Education!
+          <span>
+            Welcome to <span className="text-[#1EC28E]">EduConnect</span> - Unlocking the Power of Education!
+          </span>
         </div>
 
-        {/* Desktop Login/Register */}
-        <div className="hidden sm:flex gap-8">
-          <Link to="/login" className="flex items-center gap-2 cursor-pointer">
-            <FaRegArrowAltCircleRight size={17} className="text-[#1EC28E]" />
-            Login
-          </Link>
-          <Link to="/register" className="flex items-center gap-2 cursor-pointer">
-            <FaUserPlus size={17} className="text-[#1EC28E]" />
-            Register
-          </Link>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="sm:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            <FaBars size={22} className="text-[#1EC28E]" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="absolute left-0 top-12 bg-black w-40 rounded shadow-md z-50">
-          <button className="w-full text-left px-4 py-2 hover:bg-gray-700 flex items-center gap-2">
+        {/* Login/Register - Always visible */}
+        <div className="flex gap-6 text-sm">
+          <Link
+            to="/login"
+            className="flex items-center gap-2 hover:text-[#1EC28E] transition"
+          >
             <FaRegArrowAltCircleRight size={16} className="text-[#1EC28E]" />
             Login
-          </button>
-          <button className="w-full text-left px-4 py-2 hover:bg-gray-700 flex items-center gap-2">
+          </Link>
+          <Link
+            to="/register"
+            className="flex items-center gap-2 hover:text-[#1EC28E] transition"
+          >
             <FaUserPlus size={16} className="text-[#1EC28E]" />
             Register
-          </button>
+          </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 };

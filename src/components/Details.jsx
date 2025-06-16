@@ -15,18 +15,22 @@ import axios from "axios";
 
 const Details = () => {
   const detailsData = useLoaderData();
-const { user } = use(AuthContex);
+  const { user } = use(AuthContex);
 
-// const userEmail = user.email;
-// console.log(userEmail)
+  // const userEmail = user.email;
+  // console.log(userEmail)
 
-const { _id, username, email, image, language, price, description, review } = detailsData;
+  const { _id, username, email, image, language, price, description, review } =
+    detailsData;
 
-const handleBookBtnToStoreDB = () => {
-  const BookInfo = { bookId:_id, image, language, price, email };
-  const BookInfoWithUserEmail = { ...BookInfo, userEmail: user.email };
-  axios
-      .post("http://localhost:5000/BookTutors", BookInfoWithUserEmail)
+  const handleBookBtnToStoreDB = () => {
+    const BookInfo = { bookId: _id, image, language, price, email };
+    const BookInfoWithUserEmail = { ...BookInfo, userEmail: user.email };
+    axios
+      .post(
+        "https://edu-connect-server-side.vercel.app/BookTutors",
+        BookInfoWithUserEmail
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
@@ -37,7 +41,6 @@ const handleBookBtnToStoreDB = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          
         }
       })
       .catch((error) => {
@@ -50,9 +53,7 @@ const handleBookBtnToStoreDB = () => {
       });
 
     // console.log(tutorialData);
-
-};
-
+  };
 
   return (
     <div className="text-gray-700 bg-gray-100 shadow-xl rounded-2xl overflow-hidden border border-[#1EC28E] flex flex-col md:flex-row max-w-4xl mx-auto my-10">

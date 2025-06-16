@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
-  const { username, _id, image, language, price, description, review } = tutorial;
+  const { username, _id, image, language, price, description, review } =
+    tutorial;
 
   const [formModal, setFormModal] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -18,13 +19,17 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tutorials/${id}`, {
+        fetch(`https://edu-connect-server-side.vercel.app/tutorials/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your tutorial has been deleted.", "success");
+              Swal.fire(
+                "Deleted!",
+                "Your tutorial has been deleted.",
+                "success"
+              );
               setallTutorial((prev) => prev.filter((reci) => reci._id !== id));
             }
           })
@@ -54,7 +59,7 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
       description: form.description.value,
     };
 
-    fetch(`http://localhost:5000/tutorials/${_id}`, {
+    fetch(`https://edu-connect-server-side.vercel.app/tutorials/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -66,7 +71,9 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
         if (data.modifiedCount > 0) {
           Swal.fire("Success", "Tutorial updated successfully", "success");
           setallTutorial((prev) =>
-            prev.map((item) => (item._id === _id ? { ...item, ...updatedTutorial } : item))
+            prev.map((item) =>
+              item._id === _id ? { ...item, ...updatedTutorial } : item
+            )
           );
           handleCloseFormModal();
         }
@@ -105,10 +112,16 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
         {/* ✅ Truncated description with modal */}
         <td
           className="border border-[#1EC28E] px-2 py-1 text-left cursor-pointer"
-          title={description.length > 50 ? "Click to view full description" : ""}
-          onClick={() => description.length > 50 && setShowFullDescription(true)}
+          title={
+            description.length > 50 ? "Click to view full description" : ""
+          }
+          onClick={() =>
+            description.length > 50 && setShowFullDescription(true)
+          }
         >
-          {description.length > 50 ? description.slice(0, 50) + "..." : description}
+          {description.length > 50
+            ? description.slice(0, 50) + "..."
+            : description}
         </td>
 
         <td className="border border-[#1EC28E] px-2 py-1">{review}</td>
@@ -135,7 +148,9 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
       {showFullDescription && (
         <div className="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
-            <h3 className="text-xl font-bold mb-4 text-[#1EC28E] text-center">Full Description</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#1EC28E] text-center">
+              Full Description
+            </h3>
             <p className="text-gray-700 whitespace-pre-wrap">{description}</p>
             <button
               onClick={() => setShowFullDescription(false)}
@@ -151,10 +166,14 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
       {formModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-80">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
-            <h3 className="text-xl font-bold mb-4 text-center text-[#1EC28E]">Update Tutorial</h3>
+            <h3 className="text-xl font-bold mb-4 text-center text-[#1EC28E]">
+              Update Tutorial
+            </h3>
             <form onSubmit={handleUpdateForm} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold mb-1">Image URL</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Image URL
+                </label>
                 <input
                   type="text"
                   name="image"
@@ -163,7 +182,9 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1">Language</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Language
+                </label>
                 <input
                   type="text"
                   name="language"
@@ -172,7 +193,9 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1">Price</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Price
+                </label>
                 <input
                   type="number"
                   name="price"
@@ -181,7 +204,9 @@ const TutorialsRow = ({ tutorial, index, setallTutorial }) => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1">Description</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Description
+                </label>
                 <textarea
                   name="description"
                   defaultValue={description}
