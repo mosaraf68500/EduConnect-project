@@ -1,27 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Languages, Mail, DollarSign, Info } from "lucide-react";
 import Swal from "sweetalert2";
 
 const MyBookedTutorCard = ({ MyBookedTutor }) => {
   const { _id, image, language, price, email, review = 0 } = MyBookedTutor;
-//   console.log(_id)
 
- const handleQuickReviewSubmit = async (id) => {
-  try {
-    const { data } = await axios.patch(`http://localhost:5000/BookTutors/${id}`);
-    if (data.modifiedCount > 0) {
-      Swal.fire("Success!", "Review count increased by 1", "success");
-    } else {
-      Swal.fire("Oops!", "Failed to update review", "error");
+  // Local state to track review count
+  const [reviewCount, setReviewCount] = useState(review);
+
+  const handleQuickReviewSubmit = async (id) => {
+    try {
+      const { data } = await axios.patch(`http://localhost:5000/BookTutors/${id}`);
+      if (data.modifiedCount > 0) {
+        setReviewCount((prev) => prev + 1); // update review in UI
+        Swal.fire("Success!", "Review count increased by 1", "success");
+      } else {
+        Swal.fire("Oops!", "Failed to update review", "error");
+      }
+    } catch (error) {
+      console.error("Review error:", error);
+      Swal.fire("Error!", "Something went wrong", "error");
     }
-  } catch (error) {
-    console.error("Review error:", error);
-    Swal.fire("Error!", "Something went wrong", "error");
-  }
-};
-
-
+  };
 
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 flex flex-col md:flex-row">
@@ -60,13 +61,13 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
           </span>
         </p>
 
-        <p className="text-gray-700 text-sm mt-2">
-          <span className="font-medium">Total Reviews:</span> {review}
+        <p className="text-gray-700 text-sm mt-2  text-start">
+          <span className="font-medium">Total Reviews:</span> {reviewCount}
         </p>
 
         <div className="mt-6 w-full">
           <button
-            onClick={()=>handleQuickReviewSubmit(_id)}
+            onClick={() => handleQuickReviewSubmit(_id)}
             className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#1EC28E] text-white text-sm font-medium rounded-lg hover:opacity-90 transition"
           >
             <Info className="w-4 h-4 text-white" />

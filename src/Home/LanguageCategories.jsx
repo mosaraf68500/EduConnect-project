@@ -30,9 +30,10 @@ const LanguageCategories = () => {
   return (
     <section className="mb-16 rounded-2xl shadow-xl p-6">
       <p className="text-sm text-[#1EC28E] text-center">TOP CATEGORIES</p>
-      <h2 className="text-3xl font-bold text-center text-gray-600 dark:text-white mb-10">
+      <h2 className="text-3xl font-bold text-center text-black dark:text-[#1EC28E] mb-10">
         Educate Trending <span className="text-[#1EC28E]">Courses</span>
       </h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-center">
         {categories.map(({ title, icon: Icon, bgColor }, index) => (
           <div
@@ -49,7 +50,7 @@ const LanguageCategories = () => {
 
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-between h-full">
-              <Icon className="w-6 h-6 mb-4 dark:text-gray-800  text-current transition-colors duration-300 group-hover:text-white" />
+              <Icon className="w-6 h-6 mb-4  text-[#1EC28E]   transition-colors duration-300 group-hover:text-white" />
               <h3 className="text-sm font-bold text-gray-800 dark:text-gray-800 transition-colors duration-300 group-hover:text-white">
                 {title.split(" ")[0].toUpperCase()}
               </h3>

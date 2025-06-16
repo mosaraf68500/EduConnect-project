@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <header className="w-full">
+    <header className="w-full sticky top-0 z-500">
       <div className="hidden lg:block">
         <TopNavbar />
       </div>
