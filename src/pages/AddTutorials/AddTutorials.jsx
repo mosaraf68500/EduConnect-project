@@ -3,6 +3,7 @@ import { AuthContex } from "../../Contex/AuthContex";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Loading from "../../LoadingPage/Loading";
+import { Helmet } from "react-helmet";
 
 const AddTutorials = () => {
   const { user } = useContext(AuthContex);
@@ -47,6 +48,11 @@ const AddTutorials = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-10 shadow-lg rounded-xl bg-gray-50 my-10">
+      <Helmet>
+            <title>
+                Add Tutorials
+            </title>
+        </Helmet>
       <h2 className="text-3xl font-bold text-center mb-8 text-[#1EC28E]">
         Add a New Tutorial
       </h2>

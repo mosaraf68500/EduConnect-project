@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Languages, Mail, DollarSign, Info } from "lucide-react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyBookedTutorCard = ({ MyBookedTutor }) => {
   const { _id, image, language, price, email, review = 0 } = MyBookedTutor;
@@ -28,6 +29,11 @@ const MyBookedTutorCard = ({ MyBookedTutor }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 flex flex-col md:flex-row">
+      <Helmet>
+            <title>
+                My Booked Tutors
+            </title>
+        </Helmet>
       {/* Left Side: Image */}
       <div className="w-full md:w-1/2 border rounded-2xl border-[#1EC28E]">
         <img

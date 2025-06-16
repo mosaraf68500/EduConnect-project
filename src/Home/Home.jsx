@@ -8,10 +8,14 @@ import About from "../components/About";
 import Blogs from "../components/Blogs";
 import Inovative from "./Inovative";
 import TeamSection from "./TeamSection";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Home || EduConnect-Project</title>
+      </Helmet>
       <section className="bg-gradient-to-r from-[#d1ecdb] to-white">
         <Banner></Banner>
         {/* ratting */}

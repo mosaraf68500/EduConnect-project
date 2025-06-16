@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "../../LoadingPage/Loading";
 import AllTutorials from "./AllTutorials";
 import { useLocation } from "react-router";
+import { Helmet } from "react-helmet";
 
 const FindToturs = () => {
   const location = useLocation();
@@ -29,6 +30,11 @@ const FindToturs = () => {
 
   return (
     <div className="py-10 bg-[#F0FBF8]">
+        <Helmet>
+            <title>
+                Find Tutors
+            </title>
+        </Helmet>
       <AllTutorials
         setSearch={setSearch}
         search={search}
