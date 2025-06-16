@@ -161,7 +161,7 @@ npm run dev
 ### Server Setup
 ```bash
 # Clone the server repository
-git clone https://github.com/username/linguaconnect-server.git
+git clone https://github.com/mosaraf68500/linguaconnect-server.git
 cd linguaconnect-server
 
 # Install dependencies
