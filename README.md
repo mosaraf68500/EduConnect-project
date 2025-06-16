@@ -8,9 +8,9 @@ LinguaConnect is a comprehensive Online Tutor Booking Platform designed to conne
 
 **Live Site:** [https://linguaconnect-platform.vercel.app](https://linguaconnect-platform.vercel.app)
 
-**Server Repository:** [https://github.com/username/linguaconnect-server](https://github.com/username/linguaconnect-server)
+**Server Repository:** [https://github.com/username/linguaconnect-server]([https://github.com/mosaraf68500/linguaconnect-server](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-mosaraf68500))
 
-**Client Repository:** [https://github.com/username/linguaconnect-client](https://github.com/username/linguaconnect-client)
+**Client Repository:** [https://github.com/username/linguaconnect-client](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-mosaraf68500)
 
 ## ✨ Key Features
 
