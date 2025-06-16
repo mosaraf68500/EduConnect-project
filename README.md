@@ -2,15 +2,15 @@
 
 ## 📖 Project Overview
 
-LinguaConnect is a comprehensive Online Tutor Booking Platform designed to connect language learners with qualified tutors worldwide. The platform creates a friendly atmosphere for language learning by providing an intuitive interface for discovering, reviewing, and booking tutors across various languages and subjects. Our mission is to make quality language education accessible globally while streamlining the tutor-student connection process.
+EduConnect is a comprehensive Online Tutor Booking Platform designed to connect language learners with qualified tutors worldwide. The platform creates a friendly atmosphere for language learning by providing an intuitive interface for discovering, reviewing, and booking tutors across various languages and subjects. Our mission is to make quality language education accessible globally while streamlining the tutor-student connection process.
 
 ## 🚀 Live Demo
 
-**Live Site:** [https://linguaconnect-platform.vercel.app](https://linguaconnect-platform.vercel.app)
+**Live Site:** [https://educonnect-9e2c7.web.app/](https://educonnect-9e2c7.web.app/)
 
-**Server Repository:** [https://github.com/username/linguaconnect-server]([https://github.com/mosaraf68500/linguaconnect-server](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-mosaraf68500))
+**Server Repository:** ([https://github.com/mosaraf68500/educonnect-server](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-mosaraf68500))
 
-**Client Repository:** [https://github.com/username/linguaconnect-client](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-mosaraf68500)
+**Client Repository:** [https://github.com/mosaraf68500/educonnect-client](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-mosaraf68500)
 
 ## ✨ Key Features
 
