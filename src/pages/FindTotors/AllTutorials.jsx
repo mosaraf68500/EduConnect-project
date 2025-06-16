@@ -5,7 +5,7 @@ const AllTutorials = ({ tutorials, setSearch, search }) => {
   return (
     <div>
       <div className="pb-6 max-w-xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4 text-center">All Tutorials</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center dark:text-gray-800">All Tutorials</h1>
 
         {/* Search Field */}
         <input
@@ -13,7 +13,7 @@ const AllTutorials = ({ tutorials, setSearch, search }) => {
           value={search}
           placeholder="Search tutorials..."
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full p-3 border border-[#1EC28E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1EC28E]"
+          className="w-full p-3 border dark:text-gray-600 border-[#1EC28E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1EC28E]"
         />
       </div>
 

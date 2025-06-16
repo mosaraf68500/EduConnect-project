@@ -13,14 +13,14 @@ const Inovative = () => {
         {/* Left: Header */}
         <div className="flex-1 border-b-1 border-[#1EC28E] pb-2 flex items-center gap-2">
           <div className="w-2 h-2 bg-green-500"></div>
-          <span className="uppercase font-semibold text-sm tracking-wide">
+          <span className="uppercase font-semibold text-sm tracking-wide dark:text-gray-600">
             WHY CHOOSE US?
           </span>
         </div>
 
         {/* Right: Title */}
         <div className="flex-1">
-          <h1 className="text-xl md:text-3xl font-bold text-right leading-snug">
+          <h1 className="text-xl dark:text-gray-600 md:text-3xl font-bold text-right leading-snug">
             Innovative and effective <br className="hidden md:block" />
             learning approaches
           </h1>

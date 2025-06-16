@@ -46,14 +46,14 @@ const TeamSection = () => {
   return (
     <div>
       <div className="bg-gradient-to-r from-green-50 to-purple-100 py-12 px-6">
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-3xl font-bold text-center mb-10 dark:text-gray-800 ">
           Educate Awesome <span className="text-[#1EC28E]">Team</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-md text-center flex flex-col items-center"
+              className="bg-white dark:text-gray-800  rounded-xl p-6 shadow-md text-center flex flex-col items-center"
             >
               <img
                 src={member.image}

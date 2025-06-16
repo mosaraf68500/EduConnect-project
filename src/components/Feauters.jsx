@@ -50,7 +50,7 @@ const Features = () => {
             className={`rounded-xl p-6 ${feature.bgColor} shadow-sm hover:shadow-md transition`}
           >
             <div className="mb-4">{feature.icon}</div>
-            <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+            <h3 className="text-lg dark:text-gray-800 font-semibold mb-2">{feature.title}</h3>
             <p className="text-gray-600 whitespace-pre-line">{feature.description}</p>
           </div>
         ))}

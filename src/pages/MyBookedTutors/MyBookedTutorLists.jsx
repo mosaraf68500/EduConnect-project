@@ -48,7 +48,7 @@ const MyBookedTutorLists = ({ MyBookedTutorsPromise }) => {
           className="bg-gray-50 rounded-xl p-6 max-w-md mx-auto shadow-md flex flex-col items-center gap-3"
         >
           <XCircle className="w-10 h-10 text-red-500" />
-          <p className="text-lg sm:text-xl font-semibold">Oops! No tutors booked yet</p>
+          <p className="text-lg sm:text-xl font-semibold dark:text-gray-600">Oops! No tutors booked yet</p>
           <p className="text-sm text-[#1EC28E]">
             You haven’t booked any tutors at the moment. Once you book, they will appear here.
           </p>

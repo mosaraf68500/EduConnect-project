@@ -62,7 +62,7 @@ const AddTutorials = () => {
                 name="username"
                 value={user?.displayName || ""}
                 readOnly
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
+                className="w-full border-[1.5px] dark:text-gray-600 border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
               />
             </div>
 
@@ -76,7 +76,7 @@ const AddTutorials = () => {
                 name="email"
                 value={user?.email || ""}
                 readOnly
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
+                className="w-full border-[1.5px] border-[#1EC28E] dark:text-gray-600 rounded-md p-3 bg-gray-100 outline-none"
               />
             </div>
 
@@ -90,7 +90,7 @@ const AddTutorials = () => {
                 name="image"
                 placeholder="Tutorial image URL"
                 required
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none"
+                className="w-full border-[1.5px] dark:text-gray-600 border-[#1EC28E] rounded-md p-3 outline-none"
               />
             </div>
 
@@ -104,7 +104,7 @@ const AddTutorials = () => {
                 name="language"
                 placeholder="e.g. JavaScript, Python"
                 required
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none"
+                className="w-full border-[1.5px] dark:text-gray-600 border-[#1EC28E] rounded-md p-3 outline-none"
               />
             </div>
           </div>
@@ -121,7 +121,7 @@ const AddTutorials = () => {
                 name="price"
                 placeholder="Enter price in BDT"
                 required
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none"
+                className="w-full border-[1.5px] dark:text-gray-600 border-[#1EC28E] rounded-md p-3 outline-none"
               />
             </div>
 
@@ -135,7 +135,7 @@ const AddTutorials = () => {
                 rows="5"
                 placeholder="Write tutorial description..."
                 required
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none resize-none"
+                className="w-full dark:text-gray-600 border-[1.5px] border-[#1EC28E] rounded-md p-3 outline-none resize-none"
               ></textarea>
             </div>
 
@@ -149,7 +149,7 @@ const AddTutorials = () => {
                 name="review"
                 value="0"
                 readOnly
-                className="w-full border-[1.5px] border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
+                className="w-full dark:text-gray-600 border-[1.5px] border-[#1EC28E] rounded-md p-3 bg-gray-100 outline-none"
               />
             </div>
           </div>
