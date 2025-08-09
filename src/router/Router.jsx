@@ -11,6 +11,7 @@ import MyTutorials from "../pages/MyTutorials/MyTutorials";
 import MyBookedTutors from "../pages/MyBookedTutors/MyBookedTutors";
 import PrivateRoutes from "../Private/PrivateRoutes";
 import Details from "../components/Details";
+import About from "../pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path:"about",
+        Component:About
+
       },
       {
         path: "find-tutors",

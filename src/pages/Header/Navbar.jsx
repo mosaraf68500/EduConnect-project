@@ -25,6 +25,10 @@ const Navbar = () => {
         <NavLink to="/find-tutors">Find tutors</NavLink>
       </li>
 
+       <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+
       {user && (
         <>
           <li>
