@@ -12,6 +12,7 @@ import MyBookedTutors from "../pages/MyBookedTutors/MyBookedTutors";
 import PrivateRoutes from "../Private/PrivateRoutes";
 import Details from "../components/Details";
 import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ export const router = createBrowserRouter([
       {
         path:"about",
         Component:About
+
+      },
+      {
+        path:"contact",
+        Component:Contact
 
       },
       {
