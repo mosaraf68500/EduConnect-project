@@ -42,7 +42,8 @@ export const router = createBrowserRouter([
       },
       {
         path:"contact",
-        Component:Contact
+        Component:Contact,
+        loader: () => fetch("./districData.json"),
 
       },
       {
