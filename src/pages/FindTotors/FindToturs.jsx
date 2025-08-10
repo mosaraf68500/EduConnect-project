@@ -8,6 +8,8 @@ const FindToturs = () => {
   const location = useLocation();
   const [search, setSearch] = useState(location?.state?.searchText || "");
   const [tutorials, setTutorials] = useState([]);
+  const [sortPrice, setSortPrice] = useState("");
+
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,28 +19,35 @@ const FindToturs = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setTutorials(data);
+        // Sort the data here based on sortPrice
+        let sortedData = [...data];
+        if (sortPrice === "low-to-high") {
+          sortedData.sort((a, b) => a.price - b.price);
+        } else if (sortPrice === "high-to-low") {
+          sortedData.sort((a, b) => b.price - a.price);
+        }
+        setTutorials(sortedData);
         // setLoading(false);
       })
       .catch((err) => {
         console.error(err);
         // setLoading(false);
       });
-  }, [search]);
+  }, [search, sortPrice]); // sortPrice add here so that sorting updates on change
 
   // if (loading) return <Loading />;
 
   return (
     <div className="py-10  bg-[#F0FBF8]">
-        <Helmet>
-            <title>
-                Find Tutors
-            </title>
-        </Helmet>
+      <Helmet>
+        <title>Find Tutors</title>
+      </Helmet>
       <AllTutorials
         setSearch={setSearch}
         search={search}
         tutorials={tutorials}
+        sortPrice={sortPrice}
+        setSortPrice={setSortPrice}
       />
     </div>
   );
