@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GiOpenBook } from "react-icons/gi";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink } from "react-router"; 
 import { AuthContex } from "../../Contex/AuthContex";
+import { FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContex);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSignOut = () => {
     signOutUser()
@@ -16,7 +18,7 @@ const Navbar = () => {
       });
   };
 
-  const links = (
+  const commonLinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
@@ -24,27 +26,26 @@ const Navbar = () => {
       <li>
         <NavLink to="/find-tutors">Find tutors</NavLink>
       </li>
-
-       <li>
+      <li>
         <NavLink to="/about">About</NavLink>
       </li>
-       <li>
+      <li>
         <NavLink to="/contact">Contact</NavLink>
       </li>
+    </>
+  );
 
-      {user && (
-        <>
-          <li>
-            <NavLink to="/add-tutorials">Add Tutorials</NavLink>
-          </li>
-          <li>
-            <NavLink to="/my-tutorials">My Tutorials</NavLink>
-          </li>
-          <li>
-            <NavLink to="/my-booked-tutors">My booked tutors</NavLink>
-          </li>
-        </>
-      )}
+  const privateLinks = (
+    <>
+      <li>
+        <NavLink to="/add-tutorials">Add Tutorials</NavLink>
+      </li>
+      <li>
+        <NavLink to="/my-tutorials">My Tutorials</NavLink>
+      </li>
+      <li>
+        <NavLink to="/my-booked-tutors">My booked tutors</NavLink>
+      </li>
     </>
   );
 
@@ -61,19 +62,15 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </div>
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 p-2 shadow dark:text-green-500 w-36"
           >
-            {links}
+            {commonLinks}
+            {user && privateLinks}
           </ul>
         </div>
 
@@ -88,7 +85,27 @@ const Navbar = () => {
 
       {/* Navbar Center */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1">
+          {commonLinks}
+
+          {/* Private links dropdown for logged in users */}
+          {user && (
+            <li tabIndex={0} className="relative group">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center gap-1 cursor-pointer"
+              >
+                 Pages <FaChevronDown />
+              </button>
+              {/* Dropdown */}
+              {dropdownOpen && (
+                <ul className="absolute top-full left-0 bg-white border rounded shadow-md mt-1 w-48 text-gray-800 z-20">
+                  {privateLinks}
+                </ul>
+              )}
+            </li>
+          )}
+        </ul>
       </div>
 
       {/* Navbar End */}
@@ -102,7 +119,7 @@ const Navbar = () => {
           />
           <svg
             className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
-            xmlns="http://www.w3.org2000/svg"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             width="20"
             height="20"
