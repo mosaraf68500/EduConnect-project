@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-
+// blog post data 
 const blogPosts = [
   {
     date: "28 JAN",
