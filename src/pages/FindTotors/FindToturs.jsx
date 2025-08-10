@@ -29,7 +29,7 @@ const FindToturs = () => {
   // if (loading) return <Loading />;
 
   return (
-    <div className="py-10 bg-[#F0FBF8]">
+    <div className="py-10  bg-[#F0FBF8]">
         <Helmet>
             <title>
                 Find Tutors

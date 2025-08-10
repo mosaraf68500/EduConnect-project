@@ -22,7 +22,7 @@ const AllTutorials = ({ tutorials, setSearch, search }) => {
           ❌ No tutorials found for "<span className="font-semibold">{search}</span>"
         </p>
       ) : (
-        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {tutorials.map((tutorial) => (
             <TutorialCard tutorial={tutorial} key={tutorial._id} />
           ))}
