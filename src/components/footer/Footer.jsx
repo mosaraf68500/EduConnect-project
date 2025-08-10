@@ -1,9 +1,4 @@
-import {
-  CircleArrowRight,
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { CircleArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import React from "react";
 import {
   FaFacebook,
@@ -25,7 +20,9 @@ const Footer = () => {
             <p className="text-gray-300 mb-2">
               Educate the ultimate destination for
             </p>
-            <p className="text-gray-300 mb-2">We are committed to transforming</p>
+            <p className="text-gray-300 mb-2">
+              We are committed to transforming
+            </p>
             <p className="text-gray-300 mb-4">without standards</p>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-green-500 text-xl">📞</span>
@@ -41,12 +38,21 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-semibold mb-4">Online Platform</h2>
             <ul className="space-y-2 text-gray-300">
-              {["About Us", "Our Courses", "Instructors", "Enroll Now", "Career"].map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-2 cursor-pointer hover:text-[#1EC28E] hover:underline transition"
-                >
-                  <CircleArrowRight className="text-[#1EC28E]" size={20} /> {item}
+              {[
+                
+                { name: "Find Tutor", path: "/find-tutors" },
+                { name: "Add Tutorials", path: "/add-tutorials" },
+                { name: "My Tutorials", path: "/my-tutorials" },
+                
+              ].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.path}
+                    className="flex items-center gap-2 hover:text-[#1EC28E] hover:underline transition"
+                  >
+                    <CircleArrowRight className="text-[#1EC28E]" size={20} />
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -56,12 +62,20 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
             <ul className="space-y-2 text-gray-300">
-              {["Latest Blog", "Our Galary", "Contact Us", "Privacy Policy", "FAQ’s"].map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-2 cursor-pointer hover:text-[#1EC28E] hover:underline transition"
-                >
-                  <CircleArrowRight className="text-[#1EC28E]" size={20} /> {item}
+              {[
+               { name: "About Us", path: "/about" },
+                { name: "My Booked Tutors", path: "/my-booked-tutors" },
+                { name: "Contact Us", path: "/contact" },
+                
+              ].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.path}
+                    className="flex items-center gap-2 hover:text-[#1EC28E] hover:underline transition"
+                  >
+                    <CircleArrowRight className="text-[#1EC28E]" size={20} />
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -92,7 +106,8 @@ const Footer = () => {
         {/* Footer Bottom Bar with Social Icons */}
         <div className="bg-gray-900 text-white py-4 px-6 flex justify-between items-center border-t border-y-gray-400 pt-4">
           <p className="text-md">
-            © 2025 <span className="text-[#1EC28E]">Educate</span>. Designed By Mosaraf Hossen
+            © 2025 <span className="text-[#1EC28E]">Educate</span>. Designed By
+            Mosaraf Hossen
           </p>
           <div className="flex space-x-1">
             <Link className="p-2 rounded-full hover:bg-[#1EC28E] transition-colors duration-300">
